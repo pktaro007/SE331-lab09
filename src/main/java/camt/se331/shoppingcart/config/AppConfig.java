@@ -14,12 +14,14 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 import java.util.Locale;
 
+
 @EnableWebMvc
 @Configuration 
 @ComponentScan(basePackages = {"camt.se331.shoppingcart"})
 @EnableAspectJAutoProxy
-
+@Import({PersistenceContext.class})
 public class AppConfig extends WebMvcConfigurerAdapter {
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/**").addResourceLocations("/views/").setCachePeriod(31556926);
